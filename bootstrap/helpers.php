@@ -2,5 +2,6 @@
 
 function route_class()
 {
-    return str_replace('','-',Route::currentRouteName());
+    \Log::info(Route::currentRouteName());
+    return str_replace('.','-',Route::currentRouteName());
 }
