@@ -43,7 +43,7 @@
                 <hr>
             @endif
 
-        @endforeach/
+        @endforeach
     </ul>
 
 @else
