@@ -10,8 +10,7 @@
                 </div>
 
                 <div class="media-body">
-
-                    <div class="media-heading">
+                   <div class="media-heading">
                         <a href="{{ route('topics.show', [$topic->id]) }}" title="{{ $topic->title }}">
                             {{ $topic->title }}
                         </a>
@@ -22,10 +21,10 @@
 
                     <div class="media-body meta">
 
-                        <a href="#" title="{{ $topic->category->name }}">
+                    <a href="{{ route('categories.show', $topic->category->id) }}" title="{{ $topic->category->name }}">
                             <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
                              {{ $topic->category->name }}
-                        </a>
+                    </a>
 
                         <span> • </span>
                         <a href="{{ route('users.show', [$topic->user_id]) }}" title="{{ $topic->user->name }}">
@@ -44,7 +43,7 @@
                 <hr>
             @endif
 
-        @endforeach
+        @endforeach/
     </ul>
 
 @else
