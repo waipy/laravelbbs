@@ -45,10 +45,11 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(Category $category,Request $request,Topic $topic)
     {
         //
-        $topics = Topic::where('category_id',$category->id)->paginate(20);
+        $topics = $topic->withOrder($request->order)
+        ->where('category_id',$category->id)->paginate(20);
 
         return view('topics.index',compact('topics','category'));
     }
