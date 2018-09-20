@@ -25,7 +25,7 @@ Route::post('register', 'Auth\RegisterController@register');
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
-Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+Route::post('password/reset', 'Auth\ResGetPasswordController@reset');
 
 Route::resource('users','UsersController',['only'=>['show','update','edit']]);
 
@@ -38,3 +38,5 @@ Route::post('upload_image','TopicsController@uploadImage')->name('topics.upload_
 Route::get('topics/{topic}/{slug?}','TopicsController@show')->name('topics.show');
 Route::resource('replies', 'RepliesController', ['only' => ['store','destroy']]);
 Route::resource('notifications', 'NotificationsController', ['only' => ['index']]);
+
+Route::get('permission-denied','PagesController@permissionDenied')->name('permission-denied');
